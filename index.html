@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Motors | Concessionária de Carros de Luxo</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-follower"></div>
+    
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Motors</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Início</a></li>
+                <li><a href="#cars">Veículos</a></li>
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <div class="nav-right">
+                <div class="user-menu" id="userMenu">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="userNameDisplay">Entrar</span>
+                </div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="particles" id="particles"></div>
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-crown"></i>
+                    <span>Desde 2004</span>
+                </div>
+                <h1 class="glow-text">Excelência Sobre Rodas</h1>
+                <p>Descubra a coleção mais exclusiva de veículos de luxo. Performance, elegância e sofisticação em cada detalhe.</p>
+                <div class="hero-buttons">
+                    <button class="cta-button" onclick="scrollToCars()">
+                        <i class="fas fa-car-side"></i>
+                        Explorar Veículos
+                    </button>
+                    <button class="cta-button-secondary" onclick="openChat()">
+                        <i class="fas fa-comment-dots"></i>
+                        Chat Online
+                    </button>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse"></div>
+                <div class="arrow"></div>
+            </div>
+        </section>
+
+        <section id="cars" class="cars-section">
+            <div class="section-header">
+                <span class="section-tag">Nossa Frota</span>
+                <h2>Veículos Premium</h2>
+                <p>Selecione o carro dos seus sonhos e faça uma proposta</p>
+            </div>
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th-large"></i>
+                    Todos
+                </button>
+                <button class="filter-btn" data-filter="esportivo">
+                    <i class="fas fa-flag-checkered"></i>
+                    Esportivos
+                </button>
+                <button class="filter-btn" data-filter="sedan">
+                    <i class="fas fa-car"></i>
+                    Sedans
+                </button>
+                <button class="filter-btn" data-filter="suv">
+                    <i class="fas fa-truck"></i>
+                    SUVs
+                </button>
+            </div>
+            <div class="cars-grid" id="carsGrid"></div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <div class="about-content">
+                    <span class="section-tag">Sobre Nós</span>
+                    <h2>Excelência em<br>Veículos de Luxo</h2>
+                    <p>Com mais de 20 anos de experiência no mercado automotivo de luxo, a Luxury Motors se destaca pela excelência no atendimento e pela curadoria impecável dos veículos mais exclusivos do mundo.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <div>
+                                <h4>Garantia Estendida</h4>
+                                <p>Proteção completa para seu veículo</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-headset"></i>
+                            <div>
+                                <h4>Suporte 24/7</h4>
+                                <p>Assistência exclusiva</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <div>
+                                <h4>Revisão Gratuita</h4>
+                                <p>Primeira revisão sem custo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-number" data-count="500">0</div>
+                        <p>Veículos Vendidos</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="20">0</div>
+                        <p>Anos de Experiência</p>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number" data-count="98">0</div>
+                        <p>Clientes Satisfeitos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <span class="section-tag">Contato</span>
+                <h2>Fale Conosco</h2>
+                <p>Estamos prontos para atender você</p>
+            </div>
+            <div class="contact-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Nome" id="name" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" placeholder="Telefone" id="phone">
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-comment"></i>
+                        <textarea placeholder="Mensagem" id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Enviar Mensagem
+                    </button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Endereço</h4>
+                            <p>Avenida Paulista, 1000 - São Paulo, SP</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(11) 4000-0000</p>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contato@luxurymotors.com.br</p>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-car"></i>
+                <span>Luxury Motors</span>
+            </div>
+            <p>&copy; 2024 Luxury Motors - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-toggle" id="chatToggle">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chat-badge">1</span>
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <h4>Atendimento Online</h4>
+                        <p>Online agora</p>
+                    </div>
+                </div>
+                <button class="chat-close" id="chatClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        Olá! 👋 Bem-vindo à Luxury Motors. Como posso ajudá-lo hoje?
+                    </div>
+                    <div class="message-time">Agora</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+                <button id="chatSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modais -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Acessar sua conta</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="E-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Senha" required>
+                    </div>
+                    <button type="submit" class="modal-btn">Entrar</button>
+                </form>
+                <p class="modal-footer-text">
+                    Não tem uma conta? <a href="#" id="showRegister">Cadastre-se</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Criar nova conta</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="registerForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="regName" placeholder="Nome completo" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="regEmail" placeholder="E-mail" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone"></i>
+                        <input type="tel" id="regPhone" placeholder="Telefone" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="regPassword" placeholder="Senha" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-check-circle"></i>
+                        <input type="password" id="regConfirmPassword" placeholder="Confirmar senha" required>
+                    </div>
+                    <button type="submit" class="modal-btn">Cadastrar</button>
+                </form>
+                <p class="modal-footer-text">
+                    Já tem uma conta? <a href="#" id="showLogin">Faça login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div id="proposalModal" class="modal">
+        <div class="modal-content proposal-modal">
+            <div class="modal-header">
+                <h2>Fazer Proposta</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="car-summary" id="carSummary"></div>
+                <form id="proposalForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="proposalName" placeholder="Seu nome" readonly>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="proposalEmail" placeholder="Seu e-mail" readonly>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-dollar-sign"></i>
+                        <input type="number" id="proposalValue" placeholder="Valor da proposta (R$)" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-calendar"></i>
+                        <select id="paymentTerms" required>
+                            <option value="">Selecione as condições de pagamento</option>
+                            <option value="À vista">À vista</option>
+                            <option value="Financiamento 12x">Financiamento 12x</option>
+                            <option value="Financiamento 24x">Financiamento 24x</option>
+                            <option value="Financiamento 36x">Financiamento 36x</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-comment"></i>
+                        <textarea id="proposalMessage" rows="3" placeholder="Mensagem adicional (opcional)"></textarea>
+                    </div>
+                    <button type="submit" class="modal-btn">Enviar Proposta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Test Drive -->
+    <div id="testDriveModal" class="modal">
+        <div class="modal-content testdrive-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-key"></i> Agendar Test Drive</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="car-summary" id="testDriveCarSummary"></div>
+                <form id="testDriveForm">
+                    <div class="form-row">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="tdName" placeholder="Nome completo" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="tdEmail" placeholder="E-mail" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="tdPhone" placeholder="Telefone" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-id-card"></i>
+                            <input type="text" id="tdCpf" placeholder="CPF" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <i class="fas fa-calendar-alt"></i>
+                            <input type="date" id="tdDate" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-clock"></i>
+                            <select id="tdTime" required>
+                                <option value="">Horário</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-address-card"></i>
+                        <input type="text" id="tdAddress" placeholder="Endereço completo" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-car"></i>
+                        <select id="tdLicenseType" required>
+                            <option value="">Tipo de CNH</option>
+                            <option value="B">Categoria B</option>
+                            <option value="C">Categoria C</option>
+                            <option value="D">Categoria D</option>
+                        </select>
+                    </div>
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="tdTerms" required>
+                        <label for="tdTerms">Concordo com os termos e condições do test drive</label>
+                    </div>
+                    <button type="submit" class="modal-btn">
+                        <i class="fas fa-calendar-check"></i> Agendar Test Drive
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Negociação -->
+    <div id="negotiationModal" class="modal">
+        <div class="modal-content negotiation-modal">
+            <div class="modal-header">
+                <h2><i class="fas fa-handshake"></i> Negociação Personalizada</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="car-summary" id="negotiationCarSummary"></div>
+                <div class="negotiation-steps">
+                    <div class="step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Oferta Inicial</div>
+                    </div>
+                    <div class="step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Condições</div>
+                    </div>
+                    <div class="step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Finalizar</div>
+                    </div>
+                </div>
+                <form id="negotiationForm">
+                    <div class="negotiation-step step-1 active">
+                        <div class="input-group">
+                            <i class="fas fa-dollar-sign"></i>
+                            <input type="number" id="negValue" placeholder="Valor da oferta (R$)" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-car"></i>
+                            <select id="negVehicleCondition" required>
+                                <option value="">Condição do veículo</option>
+                                <option value="Novo">Novo (0km)</option>
+                                <option value="Seminovo">Seminovo</option>
+                                <option value="Usado">Usado</option>
+                            </select>
+                        </div>
+                        <div class="price-comparison">
+                            <div class="price-item">
+                                <span>Preço Anunciado:</span>
+                                <strong id="announcedPrice">R$ 0</strong>
+                            </div>
+                            <div class="price-item">
+                                <span>Sua Oferta:</span>
+                                <strong id="offerPrice">R$ 0</strong>
+                            </div>
+                            <div class="price-difference" id="priceDifference"></div>
+                        </div>
+                    </div>
+                    <div class="negotiation-step step-2">
+                        <div class="input-group">
+                            <i class="fas fa-percent"></i>
+                            <select id="negEntry" required>
+                                <option value="">Valor de entrada</option>
+                                <option value="20">20% do valor</option>
+                                <option value="30">30% do valor</option>
+                                <option value="40">40% do valor</option>
+                                <option value="50">50% do valor</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-calendar-alt"></i>
+                            <select id="negInstallments" required>
+                                <option value="">Número de parcelas</option>
+                                <option value="12">12x</option>
+                                <option value="24">24x</option>
+                                <option value="36">36x</option>
+                                <option value="48">48x</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-exchange-alt"></i>
+                            <select id="negTradeIn" required>
+                                <option value="">Veículo para troca?</option>
+                                <option value="Não">Não tenho veículo para troca</option>
+                                <option value="Sim">Sim, tenho veículo para troca</option>
+                            </select>
+                        </div>
+                        <div id="tradeInDetails" style="display: none;">
+                            <div class="input-group">
+                                <i class="fas fa-car"></i>
+                                <input type="text" placeholder="Modelo do veículo para troca">
+                            </div>
+                            <div class="input-group">
+                                <i class="fas fa-calendar"></i>
+                                <input type="text" placeholder="Ano do veículo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="negotiation-step step-3">
+                        <div class="negotiation-summary">
+                            <h3>Resumo da Negociação</h3>
+                            <div class="summary-item">
+                                <span>Veículo:</span>
+                                <strong id="summaryCar">-</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Preço Anunciado:</span>
+                                <strong id="summaryPrice">-</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Sua Oferta:</span>
+                                <strong id="summaryOffer">-</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Desconto:</span>
+                                <strong id="summaryDiscount">-</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Condições:</span>
+                                <strong id="summaryTerms">-</strong>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-comment"></i>
+                            <textarea id="negMessage" rows="3" placeholder="Mensagem adicional para o vendedor"></textarea>
+                        </div>
+                    </div>
+                    <div class="negotiation-buttons">
+                        <button type="button" class="prev-step" style="display: none;">Anterior</button>
+                        <button type="button" class="next-step">Próximo</button>
+                        <button type="submit" class="submit-negotiation" style="display: none;">
+                            <i class="fas fa-handshake"></i> Enviar Proposta de Negociação
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
